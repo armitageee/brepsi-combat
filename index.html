@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликер БРЕПСИ</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #a2c2e1, #f4f7f6);
+            font-family: 'Arial', sans-serif;
+        }
+        #clicker {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/5198/5198836.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        #score {
+            font-size: 28px;
+            color: #333;
+            margin: 20px;
+        }
+        #upgrade {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #upgrade:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Клики: 0</div>
+    <button id="clicker"></button>
+    <button id="upgrade">Улучшить</button>
+
+    <script>
+        let score = 0;
+        const scoreDisplay = document.getElementById('score');
+        const clickerButton = document.getElementById('clicker');
+        const upgradeButton = document.getElementById('upgrade');
+
+        clickerButton.addEventListener('click', () => {
+            score += 1;
+            scoreDisplay.textContent = `Клики: ${score}`;
+        });
+
+        upgradeButton.addEventListener('click', () => {
+            // Логика для улучшения
+            alert('Улучшение куплено!');
+        });
+    </script>
+</body>
+</html>
